@@ -1,5 +1,5 @@
 package com.hayaservices.dao;
 
-public class ClientDao {
+public class ImageDao {
 
 }

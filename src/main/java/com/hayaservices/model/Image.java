@@ -1,7 +1,5 @@
 package com.hayaservices.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +11,16 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
-@Data
 @Entity
-public class Booking {
+@Data
+public class Image {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private long bookingId;
+	private int imageId;
 	
+	private String imageName;
+	private String imageUrl;
 	@JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
@@ -28,20 +28,7 @@ public class Booking {
 	
 	@JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-	
-	private String firstName;
-	private String lastName;
-	private String phoneNumber;
-	private String company;
-	private String comingFrom;
-	private Timestamp startDate;
-	private Timestamp endDate;
-	private String stayLength;
-	private int numberOfPeople;
-	private String bookingStatus;
-	private String clientStatus;
-	private String referredBy;
-	private String adminComment;
+    @JoinColumn(name = "apart_id", nullable = false)
+	private Apartment apartment;
+
 }
