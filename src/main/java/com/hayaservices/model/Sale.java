@@ -19,17 +19,15 @@ public class Sale {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private long    saleId;
-	private String firstName;
-	private String lastName;
-	private String email;
+	private long   saleId;
+	private String receiverName;
+	private String SenderName;
 	private String phoneNumber;
 	private String countryFrom;
+	private String quartier;
 	private double amount;
 	private Date   date;
-	private double commission;
 	private String type;
-	private double remBalance;
 	
 	@JsonManagedReference
     @ManyToOne

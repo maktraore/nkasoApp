@@ -47,8 +47,8 @@ public class User {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userRole", 
-	joinColumns = @JoinColumn(name = "user_id"), 
-	inverseJoinColumns = @JoinColumn(name = "role_id"))
+	joinColumns = @JoinColumn(name = "userId"), 
+	inverseJoinColumns = @JoinColumn(name = "roleId"))
 	List<Role> roles;
 	
 

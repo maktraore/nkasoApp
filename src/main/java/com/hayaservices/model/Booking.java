@@ -23,13 +23,18 @@ public class Booking {
 	
 	@JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
+    @JoinColumn(name = "roomId", nullable = false)
     private Room room;
 	
 	@JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
+	
+	@JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name = "clientId", nullable = false)
+    private Client client;
 	
 	private String firstName;
 	private String lastName;
