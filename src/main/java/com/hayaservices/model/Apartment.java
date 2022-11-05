@@ -11,9 +11,10 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter @Getter
 @Entity
 public class Apartment {
 	
@@ -22,7 +23,7 @@ public class Apartment {
 	private int apartId;
 	private String name;
 	private String address;
-	private String desc;
+	private String description;
 	
 	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "apartment")

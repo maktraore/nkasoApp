@@ -1,5 +1,9 @@
 package com.hayaservices.dao;
 
-public class ImageDao {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.hayaservices.model.Image;
+
+public interface ImageDao extends JpaRepository<Image, Long> {
 
 }

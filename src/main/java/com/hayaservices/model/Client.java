@@ -3,6 +3,7 @@ package com.hayaservices.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,8 +12,11 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter @Getter
+@Entity
 public class Client {
 	
 	@Id
@@ -22,11 +26,12 @@ public class Client {
 	private String lastName;
 	private String email;
 	private String phone;
-	private String confirmation;
-	private String password;
+	private String status;
+	private String profile;
+	private String company;
 	
 	@JsonBackReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "bookings")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
 	private Set<Booking> bookings;
 
 }

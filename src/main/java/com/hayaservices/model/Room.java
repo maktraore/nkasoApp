@@ -15,8 +15,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter @Getter
 @Entity
 public class Room {
 	
@@ -28,18 +30,18 @@ public class Room {
 	private double price;
 	private int capacity;
 	private String code;
-	private String desc;
+	private String description;
 
 	@JsonBackReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "bookings")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "room")
 	private Set<Booking> bookings;
 	
 	@JsonBackReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "images")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "room")
 	private Set<Image> images;
 	
 	@JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "apart_id", nullable = false)
+    @JoinColumn(name = "apartId", nullable = false)
 	private Apartment apartment;
 }
